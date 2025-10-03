@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manoj Babu CSC - Home Delivery Services</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 600px;
+            width: 100%;
+        }
+        h1 {
+            color: #667eea;
+            text-align: center;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+        }
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 1.1em;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 600;
+            font-size: 1em;
+        }
+        input[type="text"],
+        input[type="tel"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 1em;
+            transition: border-color 0.3s;
+            font-family: inherit;
+        }
+        input:focus,
+        textarea:focus,
+        select:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+        button {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.2em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+        }
+        button:active {
+            transform: translateY(0);
+        }
+        .info-box {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            border-left: 4px solid #667eea;
+        }
+        .info-box p {
+            color: #555;
+            line-height: 1.6;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🏢 Manoj Babu CSC</h1>
+        <p class="subtitle">Order CSC Services with Home Delivery</p>
+        
+        <div class="info-box">
+            <p>Get government and citizen services delivered to your home. Fill out the form below to place your order.</p>
+        </div>
+        
+        <form id="orderForm">
+            <div class="form-group">
+                <label for="name">Full Name *</label>
+                <input type="text" id="name" name="name" required placeholder="Enter your full name">
+            </div>
+            
+            <div class="form-group">
+                <label for="phone">Phone Number *</label>
+                <input type="tel" id="phone" name="phone" required placeholder="Enter your phone number">
+            </div>
+            
+            <div class="form-group">
+                <label for="address">Address *</label>
+                <textarea id="address" name="address" required placeholder="Enter your complete address with pin code"></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label for="service">Select Service *</label>
+                <select id="service" name="service" required>
+                    <option value="">-- Choose a service --</option>
+                    <option value="pan">PAN Card Application/Correction</option>
+                    <option value="aadhaar">Aadhaar Card Update</option>
+                    <option value="bills">Bill Payments (Electricity/Water/Gas)</option>
+                    <option value="birth-cert">Birth Certificate</option>
+                    <option value="death-cert">Death Certificate</option>
+                    <option value="income-cert">Income Certificate</option>
+                    <option value="caste-cert">Caste Certificate</option>
+                    <option value="digital-doc">Digital Documentation</option>
+                    <option value="other">Other CSC Services</option>
+                </select>
+            </div>
+            
+            <button type="submit">Submit Order</button>
+        </form>
+    </div>
+    
+    <script>
+        document.getElementById('orderForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const address = document.getElementById('address').value;
+            const service = document.getElementById('service').value;
+            const serviceText = document.getElementById('service').options[document.getElementById('service').selectedIndex].text;
+            
+            alert('Thank you, ' + name + '!\n\nYour order for "' + serviceText + '" has been received.\n\nWe will contact you at ' + phone + ' to confirm your order and arrange home delivery.\n\nAddress: ' + address);
+            
+            // Reset form
+            this.reset();
+        });
+    </script>
+</body>
+</html>
